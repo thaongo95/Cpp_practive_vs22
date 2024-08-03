@@ -2,9 +2,7 @@
 
 
 Finder::Finder(const char* input_file) 
-	:input_file{ input_file },
-	words{std::make_shared<std::map<std::string, Vector2D>>()},
-	lines{std::make_shared<std::vector<std::string>>()}
+	:input_file{ input_file }
 {
 	std::ifstream fin(input_file);
 	std::string line;	
@@ -13,14 +11,16 @@ Finder::Finder(const char* input_file)
 		std::istringstream str_in(line);
 		std::string word;
 		while (str_in >> word) {
-			(*words)[word].number++;
-			(*words)[word].line_nums.insert(lines->size()-1);
+			if (!words[word]) words[word] = std::make_shared<std::set<size_t>>();
+			words[word]->insert(lines->size()-1);
 		}
 	}
 }
 
 Result Finder::find(std::string word)
 {
-	return Result(word, words, lines);
+	if (!words[word])
+		words[word] = std::make_shared<std::set<size_t>>();
+	return Result(word, words[word], lines);
 }
 

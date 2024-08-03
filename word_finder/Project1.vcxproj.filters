@@ -32,7 +32,7 @@
     <ClInclude Include="result.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vector2D.h">
+    <ClInclude Include="query.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -134,8 +134,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="finder.h" />
+    <ClInclude Include="query.h" />
     <ClInclude Include="result.h" />
-    <ClInclude Include="vector2D.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="input.txt" />
